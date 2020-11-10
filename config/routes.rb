@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
   root 'pages#home'
   get 'about', to: 'pages#about'
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+  resources :articles
+  
+  # we don'y need to fo this now because all of the routes are exposed now
+  # only: [:show, :index, :new, :create, :edit, :update]
 
 end
