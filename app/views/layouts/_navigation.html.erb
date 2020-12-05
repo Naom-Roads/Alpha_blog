@@ -17,13 +17,13 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Create new Article", new_article_path, class: "dropdown-item"%>
                 <%= link_to "View Articles", articles_path, class: "dropdown-item" %>
-                <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-            </div>
                 </li>
-         <!--<li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-        </li> -->
+         <li class="nav-item">
+            <%= link_to 'Log in', login_path, class: "nav-link" %>
+        </li>
+          <li class="nav-item">
+            <%= link_to 'Log out', logout_path, class: "nav-link", method: :delete %>
+        </li>
         </ul>
 
             </ul>

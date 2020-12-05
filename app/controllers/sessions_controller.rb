@@ -1,15 +1,26 @@
 class SessionsController < ApplicationController
+  
+  def new
 
-    def new
+  end
 
-    end
-
-    def create
-        byebug
-
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+        session[:user_id] = user.id
+        #sessions enable the application to maintain a user specific state all use a cookie to store a unique id per session
+        flash[:notice] = "Logged in Successfully"
+        redirect_to user
+    else
+      flash.now[:alert] = 'There was something wrong with your login details'
+      render 'new'
     end
 
     def destroy
+        session[:user_id] = nil
+        flash[:notice] = "logged out"
+        redirect_to root_path
 
-    end 
+    end
+   end
 end
