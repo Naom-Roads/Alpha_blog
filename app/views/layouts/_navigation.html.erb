@@ -13,29 +13,36 @@
           Articles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Create new Article", new_article_path, class: "dropdown-item"%>
+          <% if logged_in? %>
+            <%= link_to "Create new Article", new_article_path, class: "dropdown-item" %>
+          <% end %>
           <%= link_to "View Articles", articles_path, class: "dropdown-item" %>
         </li>
         <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, (current_user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Log out', logout_path, class: "nav-link", method: :delete %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'Log in', login_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
-          </li>
-        <% end %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profile [<%= current_user.username %>]
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Log out', logout_path, class: "nav-link", method: :delete %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Log in', login_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
       </ul>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
