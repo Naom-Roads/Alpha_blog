@@ -9,10 +9,10 @@
         <%= link_to "Bloggers", users_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="articlesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Articles
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="articlesDropdown">
           <% if logged_in? %>
             <%= link_to "Create new Article", new_article_path, class: "dropdown-item" %>
           <% end %>
@@ -20,10 +20,10 @@
         </li>
         <% if logged_in? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
               <%= link_to "View your Profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Delete Profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" } %>
