@@ -8,6 +8,13 @@
               by <%= @article.user.username %>
               <%= link_to gravatar_for(@article.user), user_path(@article.user)%>
             </div>
+
+<% if @article.categories.any? %>
+<div class="mt-2"> <%= render @article.categories %> </div>
+<%end%>
+
+
+
             <div class="card-body">
               <div class="card-text text-left">
                 <td><%= simple_format(@article.description) %></div>
