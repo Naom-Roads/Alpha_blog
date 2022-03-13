@@ -1,24 +1,12 @@
-# README
+# Welcome to AlphaBlog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An app where you can write articles and share your work with other writers. This is my first rails app and so much of it was created from the ground up without the use of scaffolds or gems like devise. 
 
-Things you may want to cover:
+## Technologies Used
 
-* Ruby version
+* Rails 
+* postgresql DB
+* ByeBug
+* Bcrypt
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img width="1434" alt="alphablog" src="https://user-images.githubusercontent.com/44932790/158056652-2b951663-85cf-4f0d-88a5-429985dd040b.png">
